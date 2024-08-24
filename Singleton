@@ -1,0 +1,30 @@
+package com.dp.singleton;
+
+class Singleton{
+	private static Singleton instance;  //=new Singleton(val) //eager instantiate
+	private String value;
+	
+	private Singleton(String value) {
+		this.value=value;
+	}
+	private Singleton() {
+		
+	}
+	
+	public static Singleton getInstance(String val) {
+		if(instance==null)instance = new Singleton(val);// lazy instantiation (it is prefferd
+		return instance;
+	}
+	public void print() {
+		System.out.println("hello "+value);
+	}
+}
+
+public class SingletoEgg {
+
+	public static void main(String[] args) {
+		Singleton s= Singleton.getInstance("java");
+		s.print();
+	}
+
+}
